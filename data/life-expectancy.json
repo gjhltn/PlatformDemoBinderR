@@ -1,0 +1,143 @@
+{
+	"@context": [
+		"http://www.w3.org/ns/csvw",
+		{
+			"@language": "en",
+			"@base": "http://data.gov.uk/dataset/life-expectancy-by-region-sex-and-time"
+		}
+	],
+	"@type": [
+		"http://purl.org/linked-data/cube#DataSet",
+		"http://publishmydata.com/def/dataset#Dataset",
+		"http://publishmydata.com/def/dataset#LinkedDataset"
+	],
+	"@id": "",
+	"url": "life-expectancy-by-region-sex-and-time.csv",
+	"rdfs:comment": "The life expectancy by local authority and sex dataset. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id risus ut eros fringilla semper. Vivamus tristique sem odio, eu mollis dolor congue sit amet. Morbi et justo nec mauris ultricies sagittis. Vivamus vel tempus massa, eget dictum turpis. Maecenas cursus porttitor mollis. Duis mattis lectus eget felis pulvinar dictum. Aenean libero odio, porttitor sit amet eros eu, bibendum auctor nunc. Aliquam nec dolor eget quam ultricies mollis sed ac orci. In a gravida eros, vitae posuere elit. Phasellus nec posuere ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;",
+	"dcterms:title": "Life expectancy by local authority and sex (CSV)",
+	"dcterms:description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pulvinar ut felis in commodo. Cras leo dui, molestie eu lorem eget, condimentum ultricies quam. Vestibulum bibendum, dui ac ultricies cursus, dui justo scelerisque elit, et tempus lorem neque in sapien. Nullam gravida et dolor sed placerat. Maecenas varius dolor erat, a vehicula felis ornare sit amet. Pellentesque egestas elit eu risus luctus molestie. Pellentesque sit amet elementum ante, ac cursus erat. Etiam neque orci, laoreet id diam quis, finibus euismod ante. Integer elementum hendrerit nibh in cursus. Etiam ligula lectus, sollicitudin a pellentesque eu, laoreet id felis. Fusce id imperdiet velit, in finibus erat. Maecenas porta odio sit amet elit efficitur consequat. Praesent quis auctor sapien, et malesuada lacus.",
+	"dcat:spatial": {
+		"@id": "http://statistics.data.gov.uk/id/statistical-geography/W92000004"
+	},
+	"dcat:temporal": {
+		"@id": "http://reference.data.gov.uk/id/gregorian-interval/2004-01-01T00:00:00/P5Y"
+	},
+	"dcterms:license": {
+		"@id": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+	},
+	"dcterms:publisher": {
+		"@id": "https://www.gov.uk/government/organisations/office-for-national-statistics"
+	},
+	"dcat:mediaType": {
+		"@id": "https://www.w3.org/ns/iana/media-types/text/csv#Resource"
+	},
+	"qb:structure": {
+		"@id": "#datacube/structure"
+	},
+	"tables": [
+		{
+			"url": "life-expectancy.csv",
+
+			"tableSchema": {
+				"@id": "#datacube/structure",
+				"columns": [
+					{
+						"@id": "#component/area",
+						"name": "area",
+						"titles": "area",
+						"datatype": "string",
+						"rdfs:label": "Area",
+						"rdfs:comment": "The area of an observation.",
+						"propertyUrl": "sdmx:refArea",
+						"valueUrl": "http://statistics.data.gov.uk/id/statistical-geography/{area}",
+						"qb:dimension": {
+							"@id": "sdmx:refArea",
+							"rdfs:label": "Area"
+						}
+					},
+					{
+						"@id": "#component/period",
+						"qb:dimension": {
+							"@id": "sdmx:refPeriod",
+							"rdfs:label": "Period"
+						},
+						"name": "period",
+						"titles": "period",
+						"datatype": "string",
+						"rdfs:label": "Period",
+						"rdfs:comment": "The period of an observation.",
+						"propertyUrl": "sdmx:refPeriod",
+						"valueUrl": "http://reference.data.gov.uk/id/gregorian-interval/{+period}"
+					},
+					{
+						"@id": "#component/sex",
+						"qb:dimension": {
+							"@id": "{+_tableid}#dimension/sex",
+							"rdfs:label": "Sex"
+						},
+						"name": "sex",
+						"titles": "sex",
+						"datatype": "string",
+						"rdfs:label": "Sex",
+						"rdfs:comment": "Biological sex of observed individuals.",
+						"propertyUrl": "{+_tableid}#dimension/sex",
+						"valueUrl": "http://data.gov.uk/dataset/life-expectancy-by-region-sex-and-time/codelist/sex/code/{sex}"
+					},
+					{
+						"@id": "#component/life-expectancy",
+						"qb:measure": {
+							"@id": "{+_tableid}#dimension/life-expectancy",
+							"@type": "qb:MeasureProperty",
+							"rdfs:label": "Average life expectancy",
+							"rdfs:comment": "Mean life expectancy of observed individuals."
+						},
+						"name": "life_expectancy",
+						"titles": "life_expectancy",
+						"datatype": "decimal",
+						"rdfs:label": "Average life expectancy",
+						"rdfs:comment": "Mean life expectancy of observed individuals.",
+						"propertyUrl": "{+_tableid}#measure/life-expectancy"
+					},
+					{
+						"virtual": true,
+						"name": "RDF type",
+						"rdfs:label": "RDF type",
+						"propertyUrl": "rdf:type",
+						"valueUrl": "qb:Observation"
+					},
+					{
+						"virtual": true,
+						"name": "dataset",
+						"rdfs:label": "Dataset",
+						"propertyUrl": "qb:dataSet",
+						"valueUrl": "#/data/life-expectancy"
+					},
+					{
+						"virtual": true,
+						"qb:codeList": "http://example.org/codelists/measure_types",
+						"name": "measure_type",
+						"rdfs:label": "Measure type",
+						"titles": "measure_type",
+						"datatype": "string",
+						"propertyUrl": "http://purl.org/linked-data/cube#measureType",
+						"valueUrl": "http://muttnik.gov/def/measure/count"
+					}
+				],
+				"qb:component": [
+					{
+						"@id": "#component/area"
+					},
+					{
+						"@id": "#component/period"
+					},
+					{
+						"@id": "#component/sex"
+					},
+					{
+						"@id": "#component/life-expectancy"
+					}
+				]
+			}
+		}
+	]
+}

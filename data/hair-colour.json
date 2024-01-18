@@ -1,0 +1,145 @@
+{
+	"@context": [
+		"http://www.w3.org/ns/csvw",
+		{
+			"@language": "en"
+		}
+	],
+	"@type": [
+		"http://purl.org/linked-data/cube#DataSet",
+		"http://publishmydata.com/def/dataset#Dataset",
+		"http://publishmydata.com/def/dataset#LinkedDataset"
+	],
+	"http://www.w3.org/2000/01/rdf-schema#label": [
+		{
+			"@value": "Hair colours"
+		}
+	],
+	"rdfs:comment": "An example csvm dataset.",
+
+	"http://www.w3.org/2000/01/rdf-schema#comment": [
+		{
+			"@value": "The lorem ipsum dolor. Sit amet si meliora dies ut vina."
+		}
+	],
+	"http://publishmydata.com/def/dataset#contactEmail": [
+		{
+			"@id": "mailto:customerservices@swirrl.com"
+		}
+	],
+	"http://purl.org/dc/terms/issued": [
+		{
+			"@value": "2020-04-08T11:01:49Z",
+			"@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+		}
+	],
+	"http://purl.org/dc/terms/modified": [
+		{
+			"@value": "2022-06-30T08:30:30Z",
+			"@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+		}
+	],
+	"http://purl.org/dc/terms/license": [
+		{
+			"@id": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+			"http://www.w3.org/2000/01/rdf-schema#label": [
+				{
+					"@value": "OGL"
+				}
+			]
+		}
+	],
+	"http://purl.org/dc/terms/creator": [
+		{
+			"@id": "http://swirrl.com/id/organisation/swirrl",
+			"http://www.w3.org/2000/01/rdf-schema#label": [
+				{
+					"@value": "Swirrl"
+				}
+			]
+		}
+	],
+	"http://purl.org/dc/terms/publisher": [
+		{
+			"@id": "http://swirrl.com/id/organisation/swirrl",
+			"http://www.w3.org/2000/01/rdf-schema#label": [
+				{
+					"@value": "Swirrl"
+				}
+			]
+		}
+	],
+	"http://purl.org/dc/terms/description": [
+		{
+			"@value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt nisl a mauris auctor, sed vestibulum leo sagittis. Sed finibus, massa ut condimentum mattis, dui odio ullamcorper lacus, at tempor neque orci quis enim. Praesent porta, ligula molestie tristique consectetur, ex nisl porta quam, ut suscipit diam purus a velit. Nam molestie interdum libero, eu semper sapien lacinia vitae. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum vel lectus vestibulum, volutpat ligula eget, tempus erat. Donec pulvinar enim arcu, a accumsan arcu lobortis et. Ut at sollicitudin eros. Sed ultricies nibh vel mauris aliquam, ac luctus augue mollis. Fusce imperdiet est at nulla tristique, eu finibus odio euismod. Donec ac ultrices augue. Nunc sit amet lectus risus. Morbi quis nibh tempus est rhoncus pretium. Nulla rutrum iaculis erat, a molestie mauris fermentum ac. /r/n/nAenean vulputate efficitur mi, nec iaculis velit mollis ut. Ut dui turpis, sollicitudin id velit eu, convallis semper enim. Aliquam at posuere ipsum. Vivamus mattis, mi eget sodales lobortis, nulla nisl volutpat leo, mattis efficitur erat ipsum ut massa. Maecenas molestie fringilla velit, quis semper orci finibus non. Cras in mauris et lectus consectetur iaculis pellentesque id leo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi et eros convallis, porttitor nisl eu, tristique sapien. Mauris condimentum dolor id elit laoreet efficitur. Nullam lobortis urna nec enim mattis eleifend. Aliquam convallis, nibh id imperdiet finibus, lectus tellus commodo erat, scelerisque finibus mauris justo et ipsum. Mauris imperdiet eleifend tellus iaculis efficitur. Curabitur ornare diam ut nisl dignissim cursus. Vivamus libero neque, pulvinar vitae bibendum ut, suscipit at elit. Nam gravida rhoncus molestie. Suspendisse et vulputate purus, ut maximus velit."
+		}
+	],
+	"tables": [
+		{
+			"url": "hair-colour.csv",
+			"tableSchema": {
+				"columns": [
+					{
+						"@id": "http://example.org/test-data/two-dims/compspec/hair_colour",
+						"qb:codeList": "http://example.org/codelists/hair_colours",
+						"name": "hair_colour",
+						"titles": "hair_colour",
+						"rdfs:label": "Hair colour",
+						"datatype": "string",
+						"propertyUrl": "http://muttnik.gov/def/dimension/hair_colour",
+						"valueUrl": "http://pmd-embed.netlify.app/def/concept/hair_colour/{hair_colour}",
+						"dcterms:description": "This is a column annotation"
+					},
+					{
+						"@id": "http://example.org/test-data/two-dims/compspec/value",
+						"qb:measure": {
+							"@type": "qb:MeasureProperty"
+						},
+						"rdfs:label": "Value",
+						"name": "value",
+						"titles": "value",
+						"datatype": "number",
+						"propertyUrl": "http://muttnik.gov/def/measure/{measure_type}",
+						"http://swirrl.com/def/column/range": "Values for this column will always be in the range 0-1000.",
+						"http://swirrl.com/def/column/unlabelled": "This is an annotation without a predicate label."
+					},
+					{
+						"@id": "http://example.org/test-data/two-dims/compspec/ages",
+						"qb:codeList": "http://example.org/codelists/ages",
+						"name": "age",
+						"titles": "age",
+						"rdfs:label": "Age",
+						"datatype": "string",
+						"propertyUrl": "http://muttnik.gov/def/dimension/age",
+						"valueUrl": "http://muttnik.gov/def/concept/age/{age}"
+					},
+					{
+						"rdfs:label": "Measure type",
+						"@id": "http://example.org/test-data/two-dims/compspec/measure_types",
+						"qb:codeList": "http://example.org/codelists/measure_types",
+						"name": "measure_type",
+						"titles": "measure_type",
+						"datatype": "string",
+						"propertyUrl": "http://purl.org/linked-data/cube#measureType",
+						"valueUrl": "http://muttnik.gov/def/measure/{measure_type}"
+					},
+					{
+						"name": "type",
+						"virtual": true,
+						"propertyUrl": "rdf:type",
+						"valueUrl": "qb:Observation",
+						"rdfs:label": "Type"
+					},
+					{
+						"name": "dataset",
+						"virtual": true,
+						"rdfs:label": "Dataset",
+						"propertyUrl": "qb:dataSet",
+						"valueUrl": "http://pmd-embed.netlify.app/data/my-dataset"
+					}
+				],
+				"aboutUrl": "http://example.org/test-data/observations/{+hair_colour}/{+age}/{+measure_type}"
+			}
+		}
+	]
+}
